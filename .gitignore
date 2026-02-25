@@ -39,3 +39,19 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# skills & agent config (managed by skills CLI)
+.agents/
+.claude/
+skills/
+skills-lock.json
+
+# npm cache
+.npm-cache/
+
+# mockup artifacts
+/mockup/*.png
+
+# playwright artifacts
+/test-results/
+/playwright-report/
