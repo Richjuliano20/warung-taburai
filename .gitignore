@@ -48,3 +48,10 @@ skills-lock.json
 
 # npm cache
 .npm-cache/
+
+# mockup artifacts
+/mockup/*.png
+
+# playwright artifacts
+/test-results/
+/playwright-report/
