@@ -4,7 +4,7 @@ export type MenuItem = {
   description: string;
   price: string;
   image: string;
-  category: "makanan" | "minuman" | "cemilan";
+  category: "makanan" | "minuman" | "paket";
   spicyLevel?: number;
 };
 

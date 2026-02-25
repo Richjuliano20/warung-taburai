@@ -1,46 +1,83 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "motion/react";
 
 export default function HeroSection() {
   return (
-    <section className="relative overflow-hidden py-16">
+    <section className="relative min-h-[85vh] flex items-center overflow-hidden">
+      {/* Background image */}
       <div className="absolute inset-0 -z-10">
         <Image
-          src="/images/hero.jpg"
-          alt="Suasana hangat Warung Taburai"
+          src="/images/hero-banner.jpeg"
+          alt="Warung Taburai storefront"
           fill
-          className="object-cover brightness-[0.6]"
+          className="object-cover"
           priority
         />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20" />
       </div>
-      <div className="relative mx-auto flex w-full max-w-5xl flex-col gap-6 rounded-3xl bg-[var(--color-primary)]/65 px-8 py-16 text-white shadow-2xl backdrop-blur-sm md:flex-row md:items-center md:gap-10">
-        <div className="md:flex-1">
-          <span className="inline-block rounded-full bg-[var(--color-secondary)]/30 px-4 py-1 text-xs uppercase tracking-widest text-white">
-            Selamat Datang
-          </span>
-          <h1 className="mt-4 text-4xl font-extrabold leading-tight md:text-5xl">
-            Nikmati cita rasa Nusantara di Warung Taburai
-          </h1>
-          <p className="mt-3 max-w-xl text-base leading-relaxed text-white/90 md:text-lg">
-            Sajian autentik dari berbagai penjuru Indonesia, disajikan hangat dengan rempah pilihan
-            dan suasana yang ramah.
-          </p>
-        </div>
-        <div className="flex flex-col gap-3 md:w-60">
-          <Link
-            href="/menu"
-            className="rounded-full bg-[var(--color-primary)] px-6 py-3 text-center text-sm font-semibold uppercase tracking-wide text-white shadow-lg shadow-black/30 transition-transform duration-200 hover:-translate-y-0.5"
+
+      <div className="relative mx-auto w-full max-w-6xl px-6 py-24">
+        <div className="max-w-2xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: [0.25, 0.4, 0.25, 1] }}
           >
-            Lihat Menu
-          </Link>
-          <Link
-            href="/contact"
-            className="rounded-full bg-[var(--color-secondary)]/30 px-6 py-3 text-center text-sm font-semibold uppercase tracking-wide text-white transition-colors duration-200 hover:bg-[var(--color-secondary)]/40"
+            <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-white/90 backdrop-blur-sm">
+              <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-secondary)] animate-pulse" />
+              Yogyakarta
+            </span>
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.15, ease: [0.25, 0.4, 0.25, 1] }}
+            className="mt-6 font-[family-name:var(--font-display)] text-5xl font-bold leading-[1.1] text-white md:text-7xl"
           >
-            Reservasi Sekarang
-          </Link>
+            Makan Santai,
+            <br />
+            <span className="text-[var(--color-accent)]">Rasa Aduhai</span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.3, ease: [0.25, 0.4, 0.25, 1] }}
+            className="mt-5 max-w-lg text-base leading-relaxed text-white/80 md:text-lg"
+          >
+            Masakan rumahan khas Nusantara dengan rempah pilihan.
+            Dari dapur Warung Taburai by Praz Teguh, langsung ke meja Anda.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.45, ease: [0.25, 0.4, 0.25, 1] }}
+            className="mt-8 flex flex-wrap gap-4"
+          >
+            <Link
+              href="/menu"
+              className="rounded-full bg-[#b91c1c] px-7 py-3.5 text-sm font-bold uppercase tracking-wider text-white shadow-lg shadow-black/30 transition-all duration-300 hover:bg-[#991b1b] hover:shadow-xl focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
+            >
+              Lihat Menu
+            </Link>
+            <Link
+              href="/contact"
+              className="rounded-full bg-white/95 px-7 py-3.5 text-sm font-bold uppercase tracking-wider text-[#7f1d1d] shadow-lg shadow-black/20 transition-all duration-300 hover:bg-white focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
+            >
+              Reservasi
+            </Link>
+          </motion.div>
         </div>
       </div>
+
+      {/* Decorative bottom gradient */}
+      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[var(--color-background)] to-transparent" />
     </section>
   );
 }
